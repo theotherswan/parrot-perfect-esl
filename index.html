@@ -349,12 +349,13 @@ body {
 <h3>⚠️ Browser Required / Yêu cầu trình duyệt</h3>
 <p><strong>English:</strong> This app works ONLY in <strong>Chrome</strong> or <strong>Edge</strong> browser.</p>
 <p><strong>Tiếng Việt:</strong> Ứng dụng này CHỈ hoạt động trên trình duyệt <strong>Chrome</strong> hoặc <strong>Edge</strong>.</p>
-<p style="font-size: 14px; margin-top: 10px;">📱 On phone: Download Chrome from App Store / Play Store<br>💻 On computer: Use Chrome or Edge browser</p>
+<p style="font-size: 14px; margin-top: 10px;">📱 On phone: Download Chrome browser from App Store / Play Store, then visit this website in Chrome<br>💻 On computer: Open this website in Chrome or Edge browser</p>
 </div>
 
   <div class="mode-selector">
     <button class="mode-btn active" onclick="setMode('kids')" id="kidsBtn">👶 Kids</button>
     <button class="mode-btn inactive" onclick="setMode('adults')" id="adultsBtn">👔 Adults</button>
+    <button class="mode-btn inactive" onclick="setMode('ielts')" id="ieltsBtn">🎯 IELTS</button>
 </div>
 
   <div class="week-selector">
@@ -1158,6 +1159,260 @@ const WORDS = {
         {word:'GOOD LUCK', tip:'Two words clearly'}
       ]
     }
+  },
+  ielts: {
+    week1: {
+      title: "Week 1: Personal Information & Introductions",
+      focus: "Basic vocabulary, clear pronunciation",
+      words: [
+        {word:'NAME', tip:'Clear M at end'},
+        {word:'FROM', tip:'Clear M at end'},
+        {word:'HOMETOWN', tip:'HOME-town'},
+        {word:'CITY', tip:'SIT-ee'},
+        {word:'LIVE', tip:'Long I, clear V'},
+        {word:'APARTMENT', tip:'a-PART-ment'},
+        {word:'HOUSE', tip:'HOUS, like "mouse"'},
+        {word:'WORK', tip:'Clear K at end'},
+        {word:'STUDY', tip:'STUD-ee'},
+        {word:'STUDENT', tip:'STOO-dent'},
+        {word:'MAJOR', tip:'MAY-jer'},
+        {word:'JOB', tip:'Clear B at end'},
+        {word:'OCCUPATION', tip:'ok-yu-PAY-shun'},
+        {word:'INTRODUCE', tip:'in-tro-DOOS'},
+        {word:'PLEASED', tip:'PLEEZD'}
+      ]
+    },
+    week2: {
+      title: "Week 2: Family & Relationships",
+      focus: "Family vocabulary, word stress",
+      words: [
+        {word:'FAMILY', tip:'FAM-i-lee'},
+        {word:'MOTHER', tip:'MUTH-er with TH'},
+        {word:'FATHER', tip:'FAH-ther with TH'},
+        {word:'BROTHER', tip:'BRUTH-er'},
+        {word:'SISTER', tip:'SIS-ter'},
+        {word:'PARENT', tip:'PAIR-ent'},
+        {word:'SIBLING', tip:'SIB-ling'},
+        {word:'CLOSE', tip:'CLOZ with Z'},
+        {word:'RELATIONSHIP', tip:'re-LAY-shun-ship'},
+        {word:'TOGETHER', tip:'tu-GETH-er'},
+        {word:'RELATIVE', tip:'REL-a-tiv'},
+        {word:'COUSIN', tip:'CUZ-in'},
+        {word:'GRANDPARENT', tip:'GRAND-pair-ent'},
+        {word:'UNCLE', tip:'UN-kul'},
+        {word:'AUNT', tip:'Like "ant"'}
+      ]
+    },
+    week3: {
+      title: "Week 3: Hobbies & Free Time",
+      focus: "Leisure vocabulary, fluency",
+      words: [
+        {word:'HOBBY', tip:'HOB-ee'},
+        {word:'FREE', tip:'FREE, long EE'},
+        {word:'LEISURE', tip:'LEE-zher'},
+        {word:'SPORT', tip:'Clear RT at end'},
+        {word:'EXERCISE', tip:'EK-ser-size'},
+        {word:'FITNESS', tip:'FIT-nes'},
+        {word:'BASKETBALL', tip:'BAS-ket-ball'},
+        {word:'FOOTBALL', tip:'FOOT-ball'},
+        {word:'SWIMMING', tip:'SWIM-ing'},
+        {word:'RUNNING', tip:'RUN-ing'},
+        {word:'READING', tip:'REED-ing'},
+        {word:'MUSIC', tip:'MYOO-zik'},
+        {word:'MOVIE', tip:'MOO-vee'},
+        {word:'INTEREST', tip:'IN-tres'},
+        {word:'ACTIVITY', tip:'ak-TIV-i-tee'}
+      ]
+    },
+    week4: {
+      title: "Week 4: Daily Routines",
+      focus: "Time expressions, linking",
+      words: [
+        {word:'ROUTINE', tip:'roo-TEEN'},
+        {word:'WAKE', tip:'WAYK'},
+        {word:'MORNING', tip:'MOR-ning'},
+        {word:'BREAKFAST', tip:'BREK-fast'},
+        {word:'COMMUTE', tip:'ku-MYOOT'},
+        {word:'LUNCH', tip:'LUNCH'},
+        {word:'AFTERNOON', tip:'af-ter-NOON'},
+        {word:'EVENING', tip:'EEV-ning'},
+        {word:'DINNER', tip:'DIN-ner'},
+        {word:'RELAX', tip:'re-LAKS'},
+        {word:'BEDTIME', tip:'BED-time'},
+        {word:'SCHEDULE', tip:'SKED-yool'},
+        {word:'HABIT', tip:'HAB-it'},
+        {word:'USUALLY', tip:'YOO-zhu-lee'},
+        {word:'WEEKDAY', tip:'WEEK-day'}
+      ]
+    },
+    week5: {
+      title: "Week 5: Food & Eating Habits",
+      focus: "Food vocabulary, pronunciation",
+      words: [
+        {word:'FOOD', tip:'FOOD, long OO'},
+        {word:'MEAL', tip:'MEEL, long EE'},
+        {word:'BREAKFAST', tip:'BREK-fast'},
+        {word:'LUNCH', tip:'LUNCH'},
+        {word:'DINNER', tip:'DIN-ner'},
+        {word:'RESTAURANT', tip:'RES-tuh-rant'},
+        {word:'COOK', tip:'COOK'},
+        {word:'KITCHEN', tip:'KITCH-en'},
+        {word:'RECIPE', tip:'RES-i-pee'},
+        {word:'DELICIOUS', tip:'de-LISH-us'},
+        {word:'TASTE', tip:'TAYST'},
+        {word:'HUNGRY', tip:'HUN-gree'},
+        {word:'DIET', tip:'DY-et'},
+        {word:'VEGETABLE', tip:'VEJ-ta-bul'},
+        {word:'FRUIT', tip:'FROOT'}
+      ]
+    },
+    week6: {
+      title: "Week 6: Travel & Places",
+      focus: "Travel vocabulary, Part 2 prep",
+      words: [
+        {word:'TRAVEL', tip:'TRAV-el'},
+        {word:'TRIP', tip:'TRIP'},
+        {word:'HOLIDAY', tip:'HOL-i-day'},
+        {word:'VACATION', tip:'vay-KAY-shun'},
+        {word:'VISIT', tip:'VIZ-it'},
+        {word:'TOURIST', tip:'TOOR-ist'},
+        {word:'DESTINATION', tip:'des-ti-NAY-shun'},
+        {word:'JOURNEY', tip:'JER-nee'},
+        {word:'FLIGHT', tip:'FLYT'},
+        {word:'HOTEL', tip:'ho-TEL'},
+        {word:'BEACH', tip:'BEECH'},
+        {word:'MOUNTAIN', tip:'MOUN-tin'},
+        {word:'CITY', tip:'SIT-ee'},
+        {word:'COUNTRY', tip:'KUN-tree'},
+        {word:'EXPERIENCE', tip:'eks-PEER-ee-ens'}
+      ]
+    },
+    week7: {
+      title: "Week 7: Shopping & Fashion",
+      focus: "Shopping vocabulary, fluency",
+      words: [
+        {word:'SHOPPING', tip:'SHOP-ing'},
+        {word:'SHOP', tip:'SHOP'},
+        {word:'STORE', tip:'STOR'},
+        {word:'MALL', tip:'MALL'},
+        {word:'CLOTHES', tip:'CLOZ with Z'},
+        {word:'FASHION', tip:'FASH-un'},
+        {word:'STYLE', tip:'STYL'},
+        {word:'PRICE', tip:'PRYS'},
+        {word:'EXPENSIVE', tip:'eks-PEN-siv'},
+        {word:'CHEAP', tip:'CHEEP'},
+        {word:'QUALITY', tip:'KWAL-i-tee'},
+        {word:'BRAND', tip:'BRAND'},
+        {word:'PURCHASE', tip:'PUR-chase'},
+        {word:'CUSTOMER', tip:'KUS-tum-er'},
+        {word:'SALE', tip:'SAYL'}
+      ]
+    },
+    week8: {
+      title: "Week 8: Weather & Seasons",
+      focus: "Weather vocabulary, descriptions",
+      words: [
+        {word:'WEATHER', tip:'WETH-er with TH'},
+        {word:'SUNNY', tip:'SUN-ee'},
+        {word:'RAINY', tip:'RAIN-ee'},
+        {word:'CLOUDY', tip:'CLOUD-ee'},
+        {word:'HOT', tip:'HOT'},
+        {word:'COLD', tip:'COLD'},
+        {word:'WARM', tip:'WORM'},
+        {word:'COOL', tip:'COOL'},
+        {word:'SEASON', tip:'SEE-zun'},
+        {word:'SUMMER', tip:'SUM-er'},
+        {word:'WINTER', tip:'WIN-ter'},
+        {word:'SPRING', tip:'SPRING'},
+        {word:'AUTUMN', tip:'AW-tum'},
+        {word:'CLIMATE', tip:'CLY-mit'},
+        {word:'TEMPERATURE', tip:'TEM-per-a-cher'}
+      ]
+    },
+    week9: {
+      title: "Week 9: Technology & Communication",
+      focus: "Tech vocabulary, modern life",
+      words: [
+        {word:'TECHNOLOGY', tip:'tek-NOL-o-jee'},
+        {word:'PHONE', tip:'FON'},
+        {word:'SMARTPHONE', tip:'SMART-fone'},
+        {word:'COMPUTER', tip:'kom-PYOO-ter'},
+        {word:'INTERNET', tip:'IN-ter-net'},
+        {word:'EMAIL', tip:'EE-mail'},
+        {word:'MESSAGE', tip:'MES-ij'},
+        {word:'SOCIAL', tip:'SO-shul'},
+        {word:'WEBSITE', tip:'WEB-site'},
+        {word:'ONLINE', tip:'ON-line'},
+        {word:'DIGITAL', tip:'DIJ-i-tal'},
+        {word:'APP', tip:'APP'},
+        {word:'COMMUNICATION', tip:'ko-myoo-ni-KAY-shun'},
+        {word:'CONNECT', tip:'ko-NEKT'},
+        {word:'DEVICE', tip:'de-VYSS'}
+      ]
+    },
+    week10: {
+      title: "Week 10: Education & Learning",
+      focus: "Education vocabulary, Part 3 prep",
+      words: [
+        {word:'EDUCATION', tip:'ej-oo-KAY-shun'},
+        {word:'SCHOOL', tip:'SKOOL'},
+        {word:'UNIVERSITY', tip:'yoo-ni-VER-si-tee'},
+        {word:'COLLEGE', tip:'KOL-ij'},
+        {word:'STUDENT', tip:'STOO-dent'},
+        {word:'STUDY', tip:'STUD-ee'},
+        {word:'LEARN', tip:'LERN'},
+        {word:'TEACHER', tip:'TEACH-er'},
+        {word:'LESSON', tip:'LES-un'},
+        {word:'COURSE', tip:'KORS'},
+        {word:'SUBJECT', tip:'SUB-jekt'},
+        {word:'EXAM', tip:'eg-ZAM'},
+        {word:'SKILL', tip:'SKIL'},
+        {word:'KNOWLEDGE', tip:'NOL-ij'},
+        {word:'GRADUATE', tip:'GRAD-yoo-ate'}
+      ]
+    },
+    week11: {
+      title: "Week 11: Work & Career",
+      focus: "Career vocabulary, future plans",
+      words: [
+        {word:'WORK', tip:'WERK'},
+        {word:'JOB', tip:'JOB'},
+        {word:'CAREER', tip:'ka-REER'},
+        {word:'PROFESSION', tip:'pro-FESH-un'},
+        {word:'COMPANY', tip:'KUM-pa-nee'},
+        {word:'OFFICE', tip:'OF-is'},
+        {word:'COLLEAGUE', tip:'KOL-leeg'},
+        {word:'MANAGER', tip:'MAN-a-jer'},
+        {word:'SALARY', tip:'SAL-a-ree'},
+        {word:'PROMOTE', tip:'pro-MOTE'},
+        {word:'FUTURE', tip:'FYOO-cher'},
+        {word:'PLAN', tip:'PLAN'},
+        {word:'GOAL', tip:'GOL'},
+        {word:'AMBITION', tip:'am-BISH-un'},
+        {word:'ACHIEVE', tip:'a-CHEEV'}
+      ]
+    },
+    week12: {
+      title: "Week 12: Mock Test & Review",
+      focus: "All skills, exam preparation",
+      words: [
+        {word:'OPINION', tip:'o-PIN-yun'},
+        {word:'THINK', tip:'THINK with TH'},
+        {word:'BELIEVE', tip:'be-LEEV'},
+        {word:'PREFER', tip:'pre-FER'},
+        {word:'ADVANTAGE', tip:'ad-VAN-tij'},
+        {word:'DISADVANTAGE', tip:'dis-ad-VAN-tij'},
+        {word:'IMPORTANT', tip:'im-POR-tant'},
+        {word:'EXAMPLE', tip:'eg-ZAM-pul'},
+        {word:'BECAUSE', tip:'be-KOZ'},
+        {word:'ALTHOUGH', tip:'all-THO'},
+        {word:'HOWEVER', tip:'how-EV-er'},
+        {word:'DESCRIBE', tip:'de-SKRYB'},
+        {word:'EXPERIENCE', tip:'eks-PEER-ee-ens'},
+        {word:'REMEMBER', tip:'re-MEM-ber'},
+        {word:'INTERESTING', tip:'IN-tres-ting'}
+      ]
+    }
   }
 };
 
@@ -1170,13 +1425,20 @@ function setMode(m) {
   mode = m;
   const kidsBtn = document.getElementById('kidsBtn');
   const adultsBtn = document.getElementById('adultsBtn');
+  const ieltsBtn = document.getElementById('ieltsBtn');
   
   if (m === 'kids') {
     kidsBtn.className = 'mode-btn active';
     adultsBtn.className = 'mode-btn inactive';
-  } else {
+    ieltsBtn.className = 'mode-btn inactive';
+  } else if (m === 'adults') {
     kidsBtn.className = 'mode-btn inactive';
     adultsBtn.className = 'mode-btn active';
+    ieltsBtn.className = 'mode-btn inactive';
+  } else if (m === 'ielts') {
+    kidsBtn.className = 'mode-btn inactive';
+    adultsBtn.className = 'mode-btn inactive';
+    ieltsBtn.className = 'mode-btn active';
   }
   
   populateWeeks();
@@ -1197,7 +1459,13 @@ function populateWeeks() {
   Object.keys(WORDS[mode]).forEach(key => {
     const opt = document.createElement('option');
     opt.value = key;
-    opt.textContent = WORDS[mode][key].title;
+    const entry = WORDS[mode][key];
+    if (entry && entry.title) {
+      opt.textContent = entry.title;
+    } else {
+      // prettify keys like 'week1' -> 'Week 1'
+      opt.textContent = key.replace(/_/g, ' ').replace(/week(\d+)/i, 'Week $1').replace(/(^\w)/, s => s.toUpperCase());
+    }
     select.appendChild(opt);
   });
 }
@@ -1219,26 +1487,34 @@ function loadWeek() {
 
 function showWeekInfo() {
   const weekData = WORDS[mode][week];
-  document.getElementById('weekTitle').textContent = weekData.title;
-  document.getElementById('weekFocus').textContent = `Focus: ${weekData.focus}`;
+  const title = weekData && weekData.title ? weekData.title : (week ? week.replace(/week(\d+)/i, 'Week $1') : '');
+  const focus = weekData && weekData.focus ? weekData.focus : (mode === 'ielts' ? 'IELTS vocabulary' : '');
+  document.getElementById('weekTitle').textContent = title;
+  document.getElementById('weekFocus').textContent = focus ? `Focus: ${focus}` : '';
   document.getElementById('weekInfo').style.display = 'block';
 }
 
 function showWord() {
-  const words = WORDS[mode][week].words;
-  const currentWord = words[index];
-  
+  const weekData = WORDS[mode][week];
+  let wordsArr = [];
+  if (Array.isArray(weekData)) {
+    wordsArr = weekData.map(w => ({ word: String(w).toUpperCase(), tip: '' }));
+  } else if (weekData && weekData.words) {
+    wordsArr = weekData.words;
+  }
+  const currentWord = wordsArr[index] || { word: 'HELLO', tip: '' };
+
   document.getElementById('wordDisplay').textContent = currentWord.word;
   document.getElementById('wordTip').textContent = currentWord.tip || '';
   document.getElementById('feedback').textContent = 'Press 🔊 to hear, then 🎤 to speak!';
   document.getElementById('feedback').className = 'feedback-box';
-  
+
   // Update progress
-  const progress = ((index + 1) / words.length) * 100;
+  const progress = wordsArr.length ? ((index + 1) / wordsArr.length) * 100 : 0;
   document.getElementById('progressFill').style.width = progress + '%';
-  
+
   // Update counter
-  document.getElementById('wordCounter').textContent = `Word ${index + 1} of ${words.length}`;
+  document.getElementById('wordCounter').textContent = wordsArr.length ? `Word ${index + 1} of ${wordsArr.length}` : '';
 }
 
 function playWord() {
@@ -1256,8 +1532,14 @@ function playWord() {
       wordToSpeak = 'HELLO';
     }
   } else {
-    const words = WORDS[mode][selectedWeek].words;
-    wordToSpeak = words[index].word;
+    const weekData = WORDS[mode][selectedWeek];
+    if (Array.isArray(weekData)) {
+      wordToSpeak = String(weekData[index] || 'HELLO');
+    } else if (weekData && weekData.words) {
+      wordToSpeak = weekData.words[index].word;
+    } else {
+      wordToSpeak = document.getElementById('wordDisplay').textContent || 'HELLO';
+    }
   }
   
   // Create utterance
@@ -1337,7 +1619,14 @@ function startRecording() {
     
     recognition.onresult = (e) => {
       const heard = e.results[0][0].transcript;
-      const expected = WORDS[mode][week].words[index].word.toLowerCase();
+      const weekData = WORDS[mode][week];
+      let wordsArr = [];
+      if (Array.isArray(weekData)) {
+        wordsArr = weekData.map(w => ({ word: String(w).toUpperCase(), tip: '' }));
+      } else if (weekData && weekData.words) {
+        wordsArr = weekData.words;
+      }
+      const expected = (wordsArr[index] && wordsArr[index].word ? String(wordsArr[index].word) : '').toLowerCase();
       const heardLower = heard.toLowerCase().trim();
       
       // Function to calculate similarity between two strings
@@ -1408,15 +1697,15 @@ function startRecording() {
         feedbackClass = 'feedback-box success';
       } else if (similarity >= 0.7) {
         // Close match
-        feedbackHTML += 'Good try! Close, but keep practicing. 💪<br><strong>Expected:</strong> ' + WORDS[mode][week].words[index].word;
+        feedbackHTML += 'Good try! Close, but keep practicing. 💪<br><strong>Expected:</strong> ' + (wordsArr[index] ? wordsArr[index].word : '');
         feedbackClass = 'feedback-box';
       } else if (similarity >= 0.5) {
         // Somewhat close
-        feedbackHTML += 'Not quite right. Listen again and try once more! 👂<br><strong>Expected:</strong> ' + WORDS[mode][week].words[index].word;
+        feedbackHTML += 'Not quite right. Listen again and try once more! 👂<br><strong>Expected:</strong> ' + (wordsArr[index] ? wordsArr[index].word : '');
         feedbackClass = 'feedback-box error';
       } else {
         // Very different
-        feedbackHTML += 'That\'s not quite right. Click 🔊 to listen again! 👂<br><strong>Expected:</strong> ' + WORDS[mode][week].words[index].word;
+        feedbackHTML += 'That\'s not quite right. Click 🔊 to listen again! 👂<br><strong>Expected:</strong> ' + (wordsArr[index] ? wordsArr[index].word : '');
         feedbackClass = 'feedback-box error';
       }
       
@@ -1426,7 +1715,7 @@ function startRecording() {
       // Only move to next word if pronunciation is good (similarity >= 0.7)
       if (similarity >= 0.7) {
       setTimeout(() => {
-        index = (index + 1) % WORDS[mode][week].words.length;
+        index = (index + 1) % (wordsArr.length || 1);
         showWord();
         }, 2500);
       } else {
